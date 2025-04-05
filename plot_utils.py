@@ -54,12 +54,11 @@ def plot_data(x, y, xmin=None, xmax=None):
     ax.legend(fontsize=12) # Ensure the freezing point legend is also displayed
 
     # Add a text annotation...
-    if not y.empty:
-        min_temp = y.min()
-        max_temp = y.max()
-        ax.text(0.05, 0.95, f'Min Temp: {min_temp}°C\nMax Temp: {max_temp}°C',
-                transform=ax.transAxes, fontsize=10, verticalalignment='top',
-                bbox=dict(facecolor='white', alpha=0.8, boxstyle='round,pad=0.5'))
+    min_temp = min(y)
+    max_temp = max(y)
+    ax.text(0.05, 0.95, f'Min Temp: {min_temp}°C\nMax Temp: {max_temp}°C',
+            transform=ax.transAxes, fontsize=10, verticalalignment='top',
+            bbox=dict(facecolor='white', alpha=0.8, boxstyle='round,pad=0.5'))
 
     # Remove top and right spines for a cleaner look (optional)
     ax.spines['top'].set_visible(False)
